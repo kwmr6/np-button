@@ -54,6 +54,7 @@ function updateProgress() {
 // Start up
 // ----------------------------------------------------------------------------
 
-const nickname = prompt('名前を入力してください') || 'unknown';
-socket.emit('nickname', nickname);
+const realname = prompt('実名を入力してください') || 'unknown';
+const nickname = prompt('仮の名前を入力してください') || 'unknown';
+socket.emit('name', { realname, nickname});
 alert('こんにちは' + nickname + 'さん!');

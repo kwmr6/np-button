@@ -15,7 +15,7 @@ socket.on('UserList', function (onlineUsers) {
         if(!li){
             li = document.createElement('li');
             li.id = u.id;
-            li.textContent = u.name;
+            li.textContent = u.nickname + " " + u.realname;
         }
         li.style.display = 'inline-block';
         li.style.visibility = u.hidden ? 'hidden' : 'visible';

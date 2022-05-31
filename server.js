@@ -10,7 +10,7 @@ const io = new Server(server);
 // ----------------------------------------------------------------------------
 // Environment
 // ----------------------------------------------------------------------------
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 3000;
 const MONGODB_URL = process.env.MONGODB_URL;
 
 // ----------------------------------------------------------------------------
@@ -50,15 +50,15 @@ function buildUserlist(){
 io.on('connection', (socket) => {
   console.log('a user connected');
 
-  socket.on('nickname', (name) => {
-
-    Users.findOneAndUpdate({ name }, {}, { upsert: true, new: true }, (err, u) => {
-      console.log(name + ' loggedin.');
+  socket.on('name', (data) => {
+//date.nicknameならnicknameだけ取ってこれる
+    Users.findOneAndUpdate({ data }, {}, { upsert: true, new: true }, (err, u) => {
+      console.log(data.realname + ' loggedin.');
       onlineUsers.set(u.id, u);
       io.emit('UserList', buildUserlist());
 
       socket.on('disconnect', () => {
-        console.log(name + ' disconnected.');
+        console.log(data.realname + ' disconnected.');
         onlineUsers.delete(u.id);
         io.emit('UserList', buildUserlist());
       });
