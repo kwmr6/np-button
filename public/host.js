@@ -1,19 +1,6 @@
 // ----------------------------------------------------------------------------
 // User Interface Event Handlers
 // ----------------------------------------------------------------------------
-
-const btn = document.getElementById('redisplay');
-
-btn.addEventListener('click', e => {
-    socket.emit('ShowAllNames');
-});
-
-// ----------------------------------------------------------------------------
-// Start up
-// ----------------------------------------------------------------------------
-
-socket.emit('teacher');
-
 const parent = document.getElementById('onlineUsers');
 //onlineUsersの中身はbuildUserlistの関数の結果
 socket.on('UserList', function (onlineUsers) {
@@ -33,3 +20,17 @@ socket.on('UserList', function (onlineUsers) {
         parent.appendChild(li);
     }
 });
+
+const btn = document.getElementById('redisplay');
+
+btn.addEventListener('click', e => {
+    socket.emit('ShowAllNames');
+});
+
+// ----------------------------------------------------------------------------
+// Start up
+// ----------------------------------------------------------------------------
+
+socket.emit('teacher');
+
+
