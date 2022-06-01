@@ -21,7 +21,8 @@ const mongoose = require('mongoose');
 mongoose.connect(MONGODB_URL, { useNewUrlParser: true });
 
 const userSchema = mongoose.Schema({
-  name: String,
+  nickname: String,
+  realname: String,
 });
 
 const LogSchema = mongoose.Schema({
@@ -36,7 +37,7 @@ const onlineUsers = new Map(); // user id => user
 const hiddenUsers = new Set();
 
 function buildEmitData(u) {
-  return { id: u.id, name: u.name, hidden: hiddenUsers.has(u.id) };
+  return { id: u.id, nickname: u.nickname, realname: u.realname, hidden: hiddenUsers.has(u.id) };
 }
 
 function buildUserlist(){
@@ -75,13 +76,13 @@ io.on('connection', (socket) => {
 
         io.emit('NoOpinions', buildEmitData(u));
 
-        Log.create({ userName: u.name, action: 'NoOpinions' });
+        Log.create({ userName: u.realname, action: 'NoOpinions' });
       });
 
       socket.on('ShowName', () => {
         hiddenUsers.delete(u.id);
         io.emit('ShowName', buildEmitData(u));
-        Log.create({ userName: u.name, action: 'ShowName' });
+        Log.create({ userName: u.realname, action: 'ShowName' });
       });
     });
 
