@@ -15,7 +15,6 @@ socket.on('UserList', function (onlineUsers) {
             li.id = u.id;
             li.textContent = u.nickname + " " + u.realname;
         }
-        u.nickname.style.color = 'red'
         li.style.display = 'inline-block';
         li.style.visibility = u.hidden ? 'hidden' : 'visible';
         parent.appendChild(li);
