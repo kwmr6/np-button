@@ -44,7 +44,7 @@ ul > li:after {
     left: 50%;
     margin-left: -15px;
     border: 15px solid transparent;
-    border-top: 15px solid #e6f4ff;
+    border-top: 15px solid #000;
     width: 0;
     height: 0;
 }
