@@ -8,7 +8,7 @@ const { Server } = require('socket.io');
 const io = new Server(server);
 
 // ----------------------------------------------------------------------------
-// Environment
+// Environment process.env.MONGODB_URL;
 // ----------------------------------------------------------------------------
 const port = process.env.PORT || 3000;
 const MONGODB_URL = process.env.MONGODB_URL;
@@ -53,7 +53,7 @@ io.on('connection', (socket) => {
 
   socket.on('name', (data) => {
 //date.nicknameならnicknameだけ取ってこれる
-    Users.findOneAndUpdate({ data }, {}, { upsert: true, new: true }, (err, u) => {
+    Users.findOneAndUpdate( data , {}, { upsert: true, new: true }, (err, u) => {
       console.log(data.realname + ' loggedin.');
       onlineUsers.set(u.id, u);
       io.emit('UserList', buildUserlist());
