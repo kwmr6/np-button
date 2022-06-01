@@ -13,7 +13,7 @@ socket.on('UserList', function (onlineUsers) {
         if(!li){
             li = document.createElement('li');
             li.id = u.id;
-            li.innerHTML = u.nickname + " " + u.realname;
+            li.textContent = u.nickname + " " + u.realname;
         }
         u.nickname.style.color = 'red'
         li.style.display = 'inline-block';
