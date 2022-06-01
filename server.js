@@ -39,7 +39,7 @@ const hiddenUsers = new Set();
 function buildEmitData(u) {
   return { id: u.id, nickname: u.nickname, realname: u.realname, hidden: hiddenUsers.has(u.id) };
 }
-
+//↑これ何してる？
 function buildUserlist(){
   return Array.from(onlineUsers.values()).map(buildEmitData);
 }

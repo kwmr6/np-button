@@ -4,9 +4,9 @@
 const socket = io();
 
 const parent = document.getElementById('onlineUsers');
-
+//onlineUsersの中身はbuildUserlistの関数の結果
 socket.on('UserList', function (onlineUsers) {
-    onlineUsers.sort((a, b) => a.name.localeCompare(b.name));
+    onlineUsers.sort((a, b) => a.nickname.localeCompare(b.nickname));
 
     parent.querySelectorAll('li').forEach(li => li.style.display = 'none');
 
