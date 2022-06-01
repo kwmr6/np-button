@@ -71,7 +71,11 @@ socket.on('UserList', function (onlineUsers) {
         if(!li){
             li = document.createElement('li');
             li.id = u.id;
-            li.textContent = u.nickname;
+            const span1= document.createElement("span");
+            span1.classList.add("nickname");
+            span1.textcontent =u.nickname;
+            li.appendChild(span1);
+            //li.textContent = u.nickname;
         }
         li.style.display = 'inline-block';
         li.style.visibility = u.hidden ? 'hidden' : 'visible';

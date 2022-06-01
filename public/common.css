@@ -40,6 +40,10 @@ ul > li {
     border-radius: 7px;
   }
 
+.span1 {
+    color:red;
+}
+
 ul > li:after {
     position: absolute;
     content: '';
