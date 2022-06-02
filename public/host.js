@@ -19,7 +19,7 @@ socket.on('UserList', function (onlineUsers) {
             li.appendChild(span1);
             const span2= document.createElement("span");
             span2.classList.add("realname");
-            span2.textContent =u.realname;
+            span2.textContent =" " + u.realname;
             li.appendChild(span2);
            // li.textContent = u.nickname + " " + u.realname; //できなさそうだったら（）で実名囲むのもあり
         }
