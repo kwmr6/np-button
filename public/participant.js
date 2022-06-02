@@ -73,7 +73,7 @@ socket.on('UserList', function (onlineUsers) {
             li.id = u.id;
             const span1= document.createElement("span");
             span1.classList.add("nickname");
-            span1.textcontent =u.nickname;
+            span1.textContent =u.nickname;
             li.appendChild(span1);
             //li.textContent = u.nickname;
         }
