@@ -42,6 +42,7 @@ ul > li {
 
 .nickname  {
     color: #267cd1;
+    font-size:120%;
 }
 
 ul > li:after {
